@@ -1,0 +1,120 @@
+@import "../styles/tokens.base.css";
+@import "../styles/tokens.radius-shadow.css";
+@import "../styles/tokens.motion.css";
+@import "../styles/responsive.css";
+@import "../styles/themes/theme-atlas-light.css";
+@import "../styles/themes/theme-midnight-route.css";
+@import "../styles/themes/theme-sunrise-postcard.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family: var(--font-body), serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+@layer components {
+  .atlas-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 8% 18%, color-mix(in srgb, var(--color-hero-gradient-a) 72%, transparent), transparent 45%),
+      radial-gradient(circle at 88% 12%, color-mix(in srgb, var(--color-hero-gradient-b) 68%, transparent), transparent 48%),
+      linear-gradient(150deg, color-mix(in srgb, var(--color-bg) 96%, transparent), color-mix(in srgb, var(--color-surface) 82%, transparent));
+  }
+
+  .atlas-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background-image: linear-gradient(
+        to right,
+        color-mix(in srgb, var(--color-border) 20%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-border) 20%, transparent) 1px, transparent 1px);
+    background-size: 26px 26px;
+    mix-blend-mode: multiply;
+    opacity: 0.25;
+  }
+
+  .section-kicker {
+    @apply inline-flex items-center rounded-pill border px-4 py-1 text-xs tracking-[0.18em] uppercase;
+    border-color: var(--color-border);
+    color: var(--color-text-muted);
+    background: color-mix(in srgb, var(--color-surface-2) 65%, transparent);
+  }
+
+  .section-title {
+    @apply font-display text-3xl tablet:text-4xl laptop:text-5xl leading-tight;
+    color: var(--color-text);
+  }
+
+  .surface-card {
+    @apply rounded-lg border;
+    border-color: var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cta-link {
+    @apply inline-flex items-center justify-center rounded-pill px-6 py-3 text-sm tablet:text-base font-semibold transition-all duration-base ease-emphasized;
+  }
+
+  .cta-link-primary {
+    color: var(--color-brand-contrast);
+    background: var(--color-brand);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .cta-link-secondary {
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 84%, transparent);
+  }
+
+  .table-shell {
+    @apply overflow-hidden rounded-lg border;
+    border-color: var(--color-border);
+    background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+  }
+
+  .table-row {
+    @apply grid gap-4 px-4 py-3 tablet:px-6;
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 55%, transparent);
+  }
+
+  .deck-panel-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .deck-panel-scroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}

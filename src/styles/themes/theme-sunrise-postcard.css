@@ -1,0 +1,16 @@
+[data-theme="sunrise-postcard"] {
+  --color-bg: #fff4e6;
+  --color-surface: #fff9f1;
+  --color-surface-2: #ffe7cc;
+  --color-text: #3a2b26;
+  --color-text-muted: #78574c;
+  --color-border: #dfb690;
+  --color-brand: #c34f1e;
+  --color-brand-contrast: #fff4ef;
+  --color-accent: #f0913d;
+  --color-success: #3e8c71;
+  --color-warning: #cb7a2c;
+  --color-danger: #ba5245;
+  --color-hero-gradient-a: #ffd7af;
+  --color-hero-gradient-b: #ffd7dd;
+}

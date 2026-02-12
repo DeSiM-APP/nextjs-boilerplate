@@ -1,0 +1,17 @@
+:root,
+[data-theme="atlas-light"] {
+  --color-bg: #f3efe5;
+  --color-surface: #fffaf2;
+  --color-surface-2: #f8f0df;
+  --color-text: #1f2b2f;
+  --color-text-muted: #4f5c61;
+  --color-border: #c9bca1;
+  --color-brand: #005c63;
+  --color-brand-contrast: #e6f4f1;
+  --color-accent: #be7c2f;
+  --color-success: #2a8f6d;
+  --color-warning: #b17a1c;
+  --color-danger: #ab4b3e;
+  --color-hero-gradient-a: #eadbbd;
+  --color-hero-gradient-b: #d0ebe5;
+}

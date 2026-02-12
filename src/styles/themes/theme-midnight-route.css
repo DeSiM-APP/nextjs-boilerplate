@@ -1,0 +1,16 @@
+[data-theme="midnight-route"] {
+  --color-bg: #11151e;
+  --color-surface: #172235;
+  --color-surface-2: #21304a;
+  --color-text: #edf2ff;
+  --color-text-muted: #bac5de;
+  --color-border: #324360;
+  --color-brand: #73b8ff;
+  --color-brand-contrast: #05203f;
+  --color-accent: #f3c878;
+  --color-success: #7ecaa2;
+  --color-warning: #edc26b;
+  --color-danger: #ef928f;
+  --color-hero-gradient-a: #222d45;
+  --color-hero-gradient-b: #2d4660;
+}

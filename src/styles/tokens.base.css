@@ -1,0 +1,30 @@
+:root {
+  --font-display: "Iowan Old Style", "Baskerville", "Palatino Linotype", serif;
+  --font-body: "Charter", "Hoefler Text", "Times New Roman", serif;
+
+  --color-bg: #f3efe5;
+  --color-surface: #fffaf2;
+  --color-surface-2: #f8f0df;
+  --color-text: #1f2b2f;
+  --color-text-muted: #4f5c61;
+  --color-border: #c9bca1;
+  --color-brand: #005c63;
+  --color-brand-contrast: #e6f4f1;
+  --color-accent: #be7c2f;
+  --color-success: #2a8f6d;
+  --color-warning: #b17a1c;
+  --color-danger: #ab4b3e;
+  --color-hero-gradient-a: #eadbbd;
+  --color-hero-gradient-b: #d0ebe5;
+
+  --container-mobile: calc(100% - 2rem);
+  --container-tablet: 720px;
+  --container-laptop: 960px;
+  --container-desktop: 1200px;
+  --container-wide: 1440px;
+
+  --section-gap-mobile: 4.5rem;
+  --section-gap-tablet: 5.75rem;
+  --section-gap-laptop: 7rem;
+  --section-gap-desktop: 8.5rem;
+}
