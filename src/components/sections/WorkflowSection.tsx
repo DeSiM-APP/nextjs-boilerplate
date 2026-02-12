@@ -75,20 +75,25 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
   };
 
   return (
-    <SectionShell id="workflow" flush={flush} className="page-shell">
-      <HeroReveal>
-        <SectionHeader
-          kicker="Workflow"
-          title={content.workflow.heading}
-          subtitle={content.workflow.blurb}
-          className="[&_h2.section-title]:laptop:text-4xl [&_h2.section-title]:laptop:leading-tight"
-        />
-      </HeroReveal>
+    <SectionShell
+      id="workflow"
+      flush={flush}
+      className="page-shell desktop:flex desktop:min-h-screen desktop:items-center desktop:py-8 wide:py-10"
+    >
+      <div className="w-full desktop:min-h-[calc(100vh-4rem)] desktop:flex desktop:flex-col desktop:justify-center">
+        <HeroReveal>
+          <SectionHeader
+            kicker="Workflow"
+            title={content.workflow.heading}
+            subtitle={content.workflow.blurb}
+            className="[&_h2.section-title]:laptop:text-4xl [&_h2.section-title]:laptop:leading-tight [&_h2.section-title]:desktop:text-[3.15rem] [&_h2.section-title]:desktop:leading-[1.12] [&_p]:desktop:text-[1.38rem] [&_p]:desktop:leading-9"
+          />
+        </HeroReveal>
 
-      <SectionStagger className="mt-7 grid gap-4 laptop:grid-cols-[1fr_1fr]">
-        <div className="space-y-3">
+        <SectionStagger className="mt-7 grid min-w-0 gap-4 [&>*]:min-w-0 laptop:grid-cols-[1fr_1fr] desktop:mt-8 desktop:gap-5">
+          <div className="min-w-0 space-y-3 desktop:space-y-4">
           <article className="surface-card overflow-hidden">
-            <div className="relative h-[220px] tablet:h-[280px] desktop:h-[312px]">
+            <div className="relative h-[220px] tablet:h-[280px] desktop:h-[342px] wide:h-[370px]">
               <Image
                 src={content.workflow.videoScreenshotUrl}
                 alt="Travel video preview being parsed by TravelMuse AI"
@@ -134,9 +139,9 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
                   "linear-gradient(95deg, color-mix(in srgb, var(--color-surface-2) 82%, transparent), color-mix(in srgb, var(--color-brand) 8%, transparent))"
               }}
             >
-              <div className="flex items-center justify-between gap-4 text-xs tracking-[0.06em] text-text-muted">
+              <div className="flex items-center gap-3 text-[11px] tracking-[0.04em] text-text-muted tablet:text-xs">
                 <div
-                  className="h-1.5 w-full overflow-hidden rounded-pill"
+                  className="h-1.5 min-w-0 flex-1 overflow-hidden rounded-pill"
                   style={{ background: "color-mix(in srgb, var(--color-border) 50%, transparent)" }}
                 >
                   <span
@@ -147,25 +152,27 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
                     }}
                   />
                 </div>
-                <span className="shrink-0 whitespace-nowrap">{content.workflow.videoProgressLabel}</span>
+                <span className="shrink-0 whitespace-nowrap text-[10px] tracking-[0.03em] tablet:text-xs tablet:tracking-[0.04em]">
+                  {content.workflow.videoProgressLabel}
+                </span>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex min-w-0 flex-wrap gap-2">
                 {content.workflow.videoTags.map((tag) => {
                   const TagIcon = getWorkflowTagIcon(tag);
 
                   return (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-1 rounded-pill border px-2.5 py-1 text-xs"
+                      className="inline-flex max-w-full items-center gap-1 rounded-pill border px-2.5 py-1 text-xs"
                       style={{
                         borderColor: "color-mix(in srgb, var(--color-border) 65%, transparent)",
                         color: "var(--color-text-muted)",
                         background: "color-mix(in srgb, var(--color-surface) 85%, transparent)"
                       }}
                     >
-                      <TagIcon className="h-3 w-3" />
-                      {tag}
+                      <TagIcon className="h-3 w-3 shrink-0" />
+                      <span className="truncate">{tag}</span>
                     </span>
                   );
                 })}
@@ -174,7 +181,7 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
           </article>
 
           <article
-            className="surface-card px-4 py-3 tablet:px-5 tablet:py-4"
+            className="surface-card px-4 py-3 tablet:px-5 tablet:py-4 desktop:px-6 desktop:py-5"
             style={{
               borderColor: "color-mix(in srgb, var(--color-border) 62%, transparent)",
               background:
@@ -202,10 +209,10 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
           </article>
         </div>
 
-        <div className="space-y-3">
+        <div className="min-w-0 space-y-3 desktop:space-y-4">
           <article className="surface-card overflow-hidden">
             <header
-              className="flex items-center justify-between border-b px-4 py-3 tablet:px-5"
+              className="flex items-center justify-between border-b px-4 py-3 tablet:px-5 desktop:px-6 desktop:py-4"
               style={{
                 borderColor: "color-mix(in srgb, var(--color-border) 60%, transparent)",
                 background: "color-mix(in srgb, var(--color-surface-2) 68%, transparent)"
@@ -217,7 +224,7 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
               <Sparkles className="h-4 w-4 text-brand" />
             </header>
             <div
-              className="relative h-[188px] overflow-hidden tablet:h-[254px] desktop:h-[252px]"
+              className="relative h-[188px] overflow-hidden tablet:h-[254px] desktop:h-[288px] wide:h-[310px]"
               style={{ background: "color-mix(in srgb, var(--color-surface) 76%, var(--color-bg) 24%)" }}
             >
               <Image
@@ -242,7 +249,7 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
                 return (
                   <span
                     key={label.name}
-                    className={`absolute inline-flex -translate-y-1/2 items-center gap-1.5 rounded-pill px-2.5 py-1 text-[11px] font-semibold tracking-[0.03em] ${
+                    className={`absolute inline-flex max-w-[48vw] -translate-y-1/2 items-center gap-1.5 truncate rounded-pill px-2.5 py-1 text-[11px] font-semibold tracking-[0.03em] tablet:max-w-none ${
                       isRightDirection ? "-translate-x-full flex-row-reverse" : ""
                     }`}
                     style={{
@@ -261,7 +268,7 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
           </article>
 
           <article
-            className="surface-card min-h-[264px] p-4 tablet:min-h-[294px] tablet:p-5"
+            className="surface-card min-h-[264px] p-4 tablet:min-h-[294px] tablet:p-5 desktop:min-h-[338px] desktop:p-6"
             style={{
               background:
                 "linear-gradient(120deg, color-mix(in srgb, var(--color-surface) 88%, transparent), color-mix(in srgb, var(--color-brand) 8%, transparent))"
@@ -316,7 +323,8 @@ export function WorkflowSection({ content, flush = false }: WorkflowSectionProps
             </div>
           </article>
         </div>
-      </SectionStagger>
+        </SectionStagger>
+      </div>
     </SectionShell>
   );
 }

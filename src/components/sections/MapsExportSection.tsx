@@ -113,18 +113,23 @@ export function MapsExportSection({ content, flush = false }: MapsExportSectionP
   };
 
   return (
-    <SectionShell id="maps-export" flush={flush} className="page-shell flex h-screen flex-col">
-      <HeroReveal>
-        <SectionHeader
-          kicker="Google Maps Export"
-          title={content.mapsExport.heading}
-          subtitle={content.mapsExport.blurb}
-          className="[&_h2.section-title]:laptop:text-[2.35rem] [&_p]:max-w-[65ch]"
-        />
-      </HeroReveal>
+    <SectionShell
+      id="maps-export"
+      flush={flush}
+      className="page-shell flex min-h-screen flex-col desktop:min-h-screen desktop:justify-center desktop:py-8 wide:py-10"
+    >
+      <div className="desktop:min-h-[calc(100vh-4rem)] desktop:flex desktop:flex-col desktop:justify-center">
+        <HeroReveal>
+          <SectionHeader
+            kicker="Google Maps Export"
+            title={content.mapsExport.heading}
+            subtitle={content.mapsExport.blurb}
+            className="[&_h2.section-title]:laptop:text-[2.35rem] [&_h2.section-title]:desktop:text-[3rem] [&_h2.section-title]:desktop:leading-[1.1] [&_p]:max-w-[65ch] [&_p]:desktop:text-[1.26rem] [&_p]:desktop:leading-8"
+          />
+        </HeroReveal>
 
-      <SectionStagger className="mt-6 flex min-h-0 flex-1 flex-col gap-4 laptop:flex-row-reverse laptop:[&>*]:min-w-0 laptop:[&>*]:basis-0 laptop:[&>*]:grow laptop:[&>*:first-child]:grow-[0.92] laptop:[&>*:last-child]:grow-[1.08]">
-        <article className="surface-card flex min-h-0 flex-col p-4 tablet:p-5">
+        <SectionStagger className="mt-6 flex min-h-0 flex-1 flex-col gap-4 laptop:flex-row-reverse laptop:[&>*]:min-w-0 laptop:[&>*]:basis-0 laptop:[&>*]:grow laptop:[&>*:first-child]:grow-[0.92] laptop:[&>*:last-child]:grow-[1.08] desktop:mt-8 desktop:gap-5">
+          <article className="surface-card flex min-h-0 flex-col p-4 tablet:p-5 desktop:p-6">
           <div className="flex flex-wrap gap-2">
             {content.mapsExport.statuses.map((status) => (
               <span
@@ -143,7 +148,7 @@ export function MapsExportSection({ content, flush = false }: MapsExportSectionP
           </div>
 
           <div
-            className="mt-3 flex min-h-0 flex-1 flex-col rounded-md border p-3"
+            className="mt-3 flex min-h-0 flex-1 flex-col rounded-md border p-3 desktop:p-4"
             style={{
               borderColor: "color-mix(in srgb, var(--color-border) 62%, transparent)",
               background: "color-mix(in srgb, var(--color-surface-2) 52%, transparent)"
@@ -153,7 +158,7 @@ export function MapsExportSection({ content, flush = false }: MapsExportSectionP
               {content.mapsExport.csvTitle}
             </p>
             <pre
-              className="mt-2 min-h-0 flex-1 overflow-auto whitespace-pre-wrap break-all rounded-sm border p-3 text-[11px] leading-5 tablet:text-xs"
+              className="mt-2 min-h-0 flex-1 overflow-auto whitespace-pre-wrap break-all rounded-sm border p-3 text-[11px] leading-5 tablet:text-xs desktop:text-[0.82rem]"
               style={{
                 borderColor: "color-mix(in srgb, var(--color-border) 52%, transparent)",
                 background: "color-mix(in srgb, var(--color-surface) 88%, transparent)",
@@ -174,9 +179,9 @@ export function MapsExportSection({ content, flush = false }: MapsExportSectionP
               </p>
             ))}
           </div>
-        </article>
+          </article>
 
-        <article className="surface-card flex min-h-0 flex-col p-4 tablet:p-5">
+          <article className="surface-card flex min-h-0 flex-col p-4 tablet:p-5 desktop:p-6">
           <div className="flex items-center justify-between gap-3">
             <p className="text-sm font-semibold tablet:text-base">{content.mapsExport.listTitle}</p>
             <span
@@ -191,7 +196,7 @@ export function MapsExportSection({ content, flush = false }: MapsExportSectionP
             </span>
           </div>
 
-          <div className="mt-3 min-h-0 flex-1 space-y-2 overflow-auto pr-1">
+          <div className="mt-3 min-h-0 flex-1 space-y-2 overflow-auto pr-1 desktop:space-y-2.5">
             {content.mapsExport.places.map((place) => {
               const meta = getPlaceTypeMeta(place.type);
 
@@ -227,7 +232,7 @@ export function MapsExportSection({ content, flush = false }: MapsExportSectionP
             })}
           </div>
 
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="mt-3 flex flex-wrap gap-2 desktop:mt-4">
             <a href={content.mapsExport.primaryCtaHref} target="_blank" rel="noreferrer" className="cta-link cta-link-primary gap-2">
               {content.mapsExport.primaryCtaLabel}
               <ExternalLink className="h-4 w-4" />
@@ -241,8 +246,9 @@ export function MapsExportSection({ content, flush = false }: MapsExportSectionP
               {copied ? <Check className="h-4 w-4 text-success" /> : <Copy className="h-4 w-4" />}
             </button>
           </div>
-        </article>
-      </SectionStagger>
+          </article>
+        </SectionStagger>
+      </div>
     </SectionShell>
   );
 }

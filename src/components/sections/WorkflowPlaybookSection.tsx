@@ -58,6 +58,7 @@ export function WorkflowPlaybookSection({ content, flush = false }: WorkflowPlay
     applyInset();
 
     const getDistance = () => Math.max(track.scrollWidth - rail.clientWidth, 0);
+    const getPinDistance = () => Math.max(getDistance(), window.innerHeight * 1.05);
 
     if (getDistance() <= 0) {
       gsap.set(track, { x: 0 });
@@ -72,7 +73,7 @@ export function WorkflowPlaybookSection({ content, flush = false }: WorkflowPlay
         pin,
         scrub: 0.85,
         start: "top top",
-        end: () => `+=${getDistance()}`,
+        end: () => `+=${getPinDistance()}`,
         onRefresh: applyInset,
         invalidateOnRefresh: true,
         anticipatePin: 1
@@ -88,7 +89,7 @@ export function WorkflowPlaybookSection({ content, flush = false }: WorkflowPlay
   return (
     <SectionShell id="features" flush={flush} className="page-shell">
       <div ref={shellRef}>
-        <div ref={pinRef} className="pt-4 tablet:pt-5 laptop:pt-6">
+        <div ref={pinRef} className="relative z-10 min-h-screen pt-8 tablet:pt-5 laptop:pt-6">
           <HeroReveal>
             <SectionHeader
               kicker="Workflow Playbook"
@@ -100,7 +101,7 @@ export function WorkflowPlaybookSection({ content, flush = false }: WorkflowPlay
 
           <div
             ref={railRef}
-            className="deck-panel-scroll relative left-1/2 mt-7 w-screen max-w-none -translate-x-1/2 overflow-hidden pb-2"
+            className="deck-panel-scroll relative left-1/2 mt-7 w-screen max-w-none -translate-x-1/2 overflow-hidden pb-4"
           >
             <div ref={trackRef} className="flex w-max gap-4 tablet:gap-5">
               {content.workflowPlaybook.steps.map((step, index) => {

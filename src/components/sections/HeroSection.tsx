@@ -93,42 +93,33 @@ export function HeroSection({ content }: HeroSectionProps) {
   };
 
   return (
-    <header className="relative pt-8 tablet:pt-10 laptop:pt-12">
-      <div className="surface-card atlas-grid relative overflow-hidden px-6 py-6 tablet:px-8 laptop:px-10">
-        <HeroReveal className="space-y-8">
+    <header className="relative pt-8 tablet:pt-10 laptop:pt-12 desktop:flex desktop:min-h-screen desktop:items-center desktop:py-8 wide:py-10">
+      <div className="surface-card atlas-grid relative w-full overflow-hidden px-6 py-6 tablet:px-8 laptop:px-10 desktop:min-h-[calc(100vh-4rem)] desktop:px-12 desktop:py-12 wide:min-h-[calc(100vh-5rem)] wide:px-14 wide:py-14">
+        <HeroReveal className="space-y-8 desktop:flex desktop:h-full desktop:flex-col desktop:gap-8 desktop:space-y-0">
           <div className="flex flex-col gap-5 laptop:flex-row laptop:items-center laptop:justify-between">
             <div>
-              <p className="font-display text-xl tracking-wide">TravelMuse AI</p>
+              <p className="font-display text-xl tracking-wide desktop:text-2xl">TravelMuse AI</p>
               <p className="text-sm text-text-muted">Video-native travel publishing infrastructure</p>
             </div>
 
             <div className="flex flex-col gap-3 tablet:flex-row tablet:items-center">
-              <nav className="hidden laptop:flex items-center gap-6 text-sm text-text-muted">
-                {content.nav.map((item) => (
-                  <a
-                    key={item.id}
-                    href={`#${item.id}`}
-                    className="transition-colors duration-fast ease-standard hover:text-text"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
               <ThemeSwitcher />
             </div>
           </div>
 
-          <div className="grid gap-8 laptop:grid-cols-[1.1fr_0.9fr] laptop:items-start">
-            <div className="space-y-6">
+          <div className="grid gap-8 laptop:grid-cols-[1.1fr_0.9fr] laptop:items-start desktop:flex-1 desktop:items-center desktop:gap-10">
+            <div className="space-y-6 desktop:space-y-7">
               <span className="section-kicker">{content.hero.kicker}</span>
-              <h1 className="font-display whitespace-pre-line text-3xl leading-tight tablet:text-4xl laptop:text-5xl">
+              <h1 className="font-display whitespace-pre-line text-3xl leading-tight tablet:text-4xl laptop:text-5xl desktop:text-[4rem] desktop:leading-[1.07] wide:text-[4.4rem]">
                 {content.hero.title}
               </h1>
-              <p className="max-w-2xl text-base text-text-muted tablet:text-lg">{content.hero.subtitle}</p>
+              <p className="max-w-2xl text-base text-text-muted tablet:text-lg desktop:text-[1.32rem] desktop:leading-9">
+                {content.hero.subtitle}
+              </p>
 
               <div className="max-w-2xl space-y-1.5">
                 <form
-                  className="rounded-lg border p-2"
+                  className="rounded-lg border p-2 desktop:p-2.5 wide:p-3"
                   onSubmit={(event) => {
                     event.preventDefault();
                     handleAnalyze();
@@ -140,9 +131,9 @@ export function HeroSection({ content }: HeroSectionProps) {
                     boxShadow: "var(--shadow-sm)"
                   }}
                 >
-                  <div className="flex items-center gap-2 tablet:gap-3">
+                  <div className="flex items-center gap-2 tablet:gap-3 desktop:gap-3.5">
                     <span
-                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md"
+                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md desktop:h-10 desktop:w-10 wide:h-11 wide:w-11"
                       style={{
                         color: "var(--color-text-muted)",
                         background: "color-mix(in srgb, var(--color-surface-2) 60%, transparent)"
@@ -166,7 +157,7 @@ export function HeroSection({ content }: HeroSectionProps) {
                         }
                       }}
                       placeholder={content.hero.inputPlaceholder}
-                      className="h-9 w-full bg-transparent px-0 text-sm leading-none tablet:text-base placeholder:text-[0.7rem] tablet:placeholder:text-xs placeholder:text-text-muted outline-none"
+                      className="h-9 w-full bg-transparent px-0 text-sm leading-none tablet:text-base desktop:h-10 wide:h-11 placeholder:text-[0.7rem] tablet:placeholder:text-xs placeholder:text-text-muted outline-none"
                       style={{
                         color: "var(--color-text)",
                         caretColor: "var(--color-brand)"
@@ -175,7 +166,7 @@ export function HeroSection({ content }: HeroSectionProps) {
 
                     <button
                       type="submit"
-                      className="inline-flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-md px-2.5 text-xs font-semibold tablet:min-w-[8rem] tablet:px-3.5 tablet:text-sm leading-none"
+                      className="inline-flex h-9 shrink-0 items-center justify-center gap-1.5 rounded-md px-2.5 text-xs font-semibold tablet:min-w-[8rem] tablet:px-3.5 tablet:text-sm desktop:h-10 desktop:min-w-[8.4rem] desktop:px-4 wide:h-11 leading-none"
                       style={{
                         color: "var(--color-brand-contrast)",
                         background: "var(--color-brand)",
@@ -221,7 +212,7 @@ export function HeroSection({ content }: HeroSectionProps) {
             </div>
 
             <TiltCard className="surface-card overflow-hidden">
-              <div className="relative h-[360px] tablet:h-[400px]">
+              <div className="relative h-[360px] tablet:h-[400px] desktop:h-[clamp(520px,62vh,700px)]">
                 <Image
                   src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80"
                   alt="Mountain route view"
